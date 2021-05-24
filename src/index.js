@@ -11,16 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const renderApp = () => (taskList.innerHTML = taskList.renderTasks());
 
 
-  newTaskForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  newTaskForm.addEventListener("submit", (event) => {
+    event.preventDefault();
     taskList.createNewTask(newTaskDescription.value);
-    e.target.reset();
+    event.target.reset();
     renderApp();
   });
 
-  taskList.addEventListener("click", (e) => {
-    if (e.target.nodeName === "BUTTON") {
-      taskList.deleteTask(e.target.dataset.description);
+  taskList.addEventListener("click", (event) => {
+    if (event.target.nodeName === "BUTTON") {
+      taskList.deleteTask(event.target.dataset.description);
       renderApp();
     }
   });
